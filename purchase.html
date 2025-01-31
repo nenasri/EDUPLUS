@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDUPLUS Order Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">    
+      <a href="#home" class="logo"><img src="logonew.png" alt="logo"></a>
+      <nav class="navbar">
+          <a href="#home.html" class="active">Home</a>
+          <a href="seminar.html">Seminars & Program</a>
+          <a href="#card">Tutors</a>
+          <a href="">Career</a>  
+          <a href="">Tutorial</a>
+          <a href="purchase.html">Purchase</a>
+          <button>LOG IN/REGISTER</button>
+          <a href=""><i class='bx bxs-cart-add'></i></a>
+          <a href=""><i class='bx bxs-user-circle'></i></a>  
+      </nav>
+  </header>
+
+    <main>
+      <section>
+        <h2>EDUPLUS Order Form</h2>
+        <p>Select and book your program / seminar options :</p>
+        <p class="caption">Notes : To select or remove options , choose to either click on the image or click " add to cart."</caption>
+        <div class="grid grid-cols-2">
+          <!-- Product Cards -->
+          <div class="product-card">
+            <center>
+            <img src="classes start.jpg" alt="Classes Start" onclick="toggleSelection(this.parentElement.parentElement, 'CLASSES START (2025 SYLLABUS)', 35, 'classes start.jpg'); event.stopPropagation();"/>
+              <h3>CLASSES START ( 2025 SYLLABUS )</h3>
+              <p class="caption">RM35 / Monthly</caption>
+              <br><p><button class="add-to-cart" onclick="toggleSelection(this, 'CLASSES START ( 2025 SYLLABUS )', 35, 'classes start.jpg'); event.stopPropagation();">
+                Add to Cart
+              </button></p>
+            </center>
+          </div>
+
+          <div class="product-card">
+            <center>
+            <img src="subscription.jpg" alt="Subscription" onclick="toggleSelection(this.parentElement.parentElement, 'SUBSCRIPTION 2025 IS OPEN', 45, 'subscription.jpg'); event.stopPropagation();"/>
+              <h3>SUBSCRIPTION 2025 IS OPEN</h3>
+              <p class="caption">RM45 / Monthly</caption>
+              <br><p><button class="add-to-cart" onclick="toggleSelection(this, 'SUBSCRIPTION 2025 IS OPEN', 45, 'subscription.jpg'); event.stopPropagation();">
+                Add to Cart
+              </button></p>
+            </center>
+          </div>
+
+          <div class="product-card" onclick="toggleSelection(this, 'SEMINAR LEVEL UP 2025', 30, 'Seminar Level Up.jpg')">
+            <center>
+            <img src="Seminar Level Up.jpg" alt="Seminar Level Up"/>
+              <h3>SEMINAR LEVEL UP 2025</h3>
+              <p class="caption">RM30 / Monthly</caption>
+              <br><p><button class="add-to-cart" onclick="toggleSelection(this, 'SEMINAR LEVEL UP 2025', 30, 'Seminar Level Up.jpg'); event.stopPropagation();">
+                Add to Cart
+              </button></p>
+            </center>
+          </div>
+
+          <div class="product-card" onclick="toggleSelection(this, 'SEMINAR PROJEK AKHIR SPM', 40, 'projek akhir spm.jpg')">
+            <center>
+            <img src="projek akhir spm.jpg" alt="Seminar Akhir SPM"/>
+              <h3>SEMINAR PROJEK AKHIR SPM</h3>
+              <p class="caption">RM40 / Monthly</caption>
+              <br><p><button class="add-to-cart" onclick="toggleSelection(this, 'SEMINAR PROJEK AKHIR SPM', 40, 'projek akhir spm.jpg'); event.stopPropagation();">
+                Add to Cart
+              </button></p>
+            </center>
+          </div>
+        </div>
+      </section>
+
+      <br><section class="order-summary">
+        <h2>Order Summary</h2>
+        <p>You selected :</p>
+        <div id="orderSummary"></div>
+        <div>
+          <p>
+            TOTAL PRICE : <span id="totalPrice">RM0.00</span>
+          </p>
+          <button class="checkout">CHECKOUT NOW !</button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let totalPrice = 0;
+      let selectedItems = {};
+
+      function toggleSelection(element, name, price, imageUrl) {
+        element.classList.toggle("selected");
+        const orderSummary = document.getElementById("orderSummary");
+        const existingItem = document.querySelector(
+          `#orderSummary div[data-name='${name}']`
+        );
+
+        if (existingItem) {
+          // If the item is already selected, remove it
+          delete selectedItems[name];
+          orderSummary.removeChild(existingItem);
+        } else {
+          // If the item is newly selected, add it
+          const newItem = document.createElement("div");
+          newItem.setAttribute("data-name", name);
+          newItem.classList.add(
+            "flex",
+            "justify-between",
+            "items-center",
+            "border-b",
+            "border-gray-500",
+            "pb-2"
+          );
+
+          // Initialize item with a quantity of 1
+          selectedItems[name] = { price, quantity: 1 };
+
+          newItem.innerHTML = `
+                    <div class="flex items-start space-x-4">
+                        <img src="${imageUrl}" alt="${name}" class="w-20 h-22 rounded-lg">
+                        <div>
+                            <h3 class="text-lg">${name}</h3>
+                            <p class="text-gray-300">RM${price} / Monthly</p>
+                          
+                                <label class="text-gray-300">Day :</label>
+                                <select>
+                                    ${Array.from(
+                                      { length: 31 },
+                                      (_, i) =>
+                                        `<option value="${i + 1}">${
+                                          i + 1
+                                        }</option>`
+                                    ).join("")}
+                                </select>
+
+                                <label class="text-gray-300 ml-2">Month :</label>
+                                <select>
+                                    ${[
+                                      "Jan",
+                                      "Feb",
+                                      "Mar",
+                                      "Apr",
+                                      "May",
+                                      "Jun",
+                                      "Jul",
+                                      "Aug",
+                                      "Sep",
+                                      "Oct",
+                                      "Nov",
+                                      "Dec",
+                                    ]
+                                      .map(
+                                        (month, i) =>
+                                          `<option value="${
+                                            i + 1
+                                          }">${month}</option>`
+                                      )
+                                      .join("")}
+                                </select>
+
+                                <label class="text-gray-300 ml-2">Qty :</label>
+                                <select onchange="updatePrice('${name}', ${price}, this.value)">
+                                    ${Array.from(
+                                      { length: 10 },
+                                      (_, i) =>
+                                        `<option value="${i + 1}">${
+                                          i + 1
+                                        }</option>`
+                                    ).join("")}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+          orderSummary.appendChild(newItem);
+        }
+
+        recalculateTotalPrice();
+      }
+
+      function updatePrice(name, price, quantity) {
+        if (selectedItems[name]) {
+          selectedItems[name].quantity = parseInt(quantity, 10);
+        }
+
+        recalculateTotalPrice();
+      }
+
+      function recalculateTotalPrice() {
+        totalPrice = Object.values(selectedItems).reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+        document.getElementById(
+          "totalPrice"
+        ).textContent = `RM${totalPrice.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>
