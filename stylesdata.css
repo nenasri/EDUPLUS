@@ -1,0 +1,171 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000; /* Black background */
+    color: #fff; /* White text */
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, #00FFFF, #ff68b1); /* Turquoise neon and pink gradient */
+    text-align: center;
+    padding: 80px 20px;
+    border-bottom: 5px solid #ff68b1; /* Pink border at the bottom */
+}
+
+.hero-section h1 {
+    font-family: 'Noto Serif', serif;
+    font-size: 3rem;
+    color: #ff68b1; /* Pink */
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hero-section h1:hover {
+    animation: rotateClock 2s ease-in-out infinite; /* Clock hover effect */
+}
+
+@keyframes rotateClock {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+/* Card Styling */
+.custom-card {
+    background-color: #1a1a1a; /* Dark background for cards */
+    border: 2px solid #ff68b1; /* Pink border */
+    transition: transform 0.3s ease;
+    border-radius: 8px; /* Rounded corners */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease-out;
+}
+
+.custom-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.custom-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 104, 177, 0.6); /* Pink glow effect */
+}
+
+.card-title {
+    font-family: 'Poppins', sans-serif;
+    color: #ff68b1; /* Pink for titles */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+    margin: 10px 0;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-info {
+    background-color: #00FFFF; /* Turquoise neon */
+    color: #000;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-info:hover {
+    background-color: #00b3b3; /* Darker turquoise on hover */
+}
+
+.btn-success {
+    background-color: #ff68b1; /* Pink */
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #ff3385; /* Darker pink on hover */
+}
+
+.btn-turquoise {
+    background-color: #00FFFF;
+    color: #000;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.btn-turquoise:hover {
+    background-color: #00b3b3; /* Darker turquoise on hover */
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #fff;
+}
+
+footer a {
+    color: #ff68b1;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #00FFFF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .custom-card {
+        margin-bottom: 20px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+}

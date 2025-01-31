@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>EDU PLUS - Payment</title>
+    <link rel="stylesheet" href="payment.css"> <!-- Link to the CSS File -->
+    <script src="tutorial how.js" defer></script> <!-- Link to the JS File -->
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="logo.png" alt="EDU PLUS Logo" class="logo" style="width: 50px; height: auto;"> EDU PLUS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="payment.html">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="order.html">Payment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tutorial how.html">Tutorial</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="text-white text-center py-4">
+        <h1>EDU PLUS User Guide</h1>
+        <p>The Future Starts Here - Learn how to register, schedule classes, and make payments.</p>
+    </header>
+
+    <!-- Payment Tutorial Section -->
+    <section class="container my-4">
+        <div class="accordion" id="tutorialAccordion">
+            <!-- Step 1: Select Payment Method -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="bi bi-credit-card"></i> 1. Select Payment Method
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#tutorialAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Go to the "Payment" section of your EDU PLUS account.</li>
+                            <li>Choose your preferred payment method (Credit Card, PayPal, etc.).</li>
+                            <li>Click on the selected payment method to proceed.</li>
+                        </ul>
+                        <button class="btn btn-success complete-step" data-step="1">Mark as Completed</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Confirm Payment Details -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="bi bi-check-circle"></i> 2. Confirm Payment Details
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tutorialAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Verify the payment details (amount, payment method, etc.) on the confirmation page.</li>
+                            <li>Ensure that all information is correct.</li>
+                            <li>If everything is correct, click on the "Confirm Payment" button to proceed.</li>
+                        </ul>
+                        <button class="btn btn-success complete-step" data-step="2">Mark as Completed</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Payment Confirmation -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        <i class="bi bi-wallet"></i> 3. Payment Confirmation
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#tutorialAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>After confirming your payment details, you will receive a confirmation message.</li>
+                            <li>A receipt will be sent to your registered email address.</li>
+                            <li>Click the "Finish" button to complete the process.</li>
+                        </ul>
+                        <button class="btn btn-success complete-step" data-step="3">Mark as Completed</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>For inquiries, contact <a href="mailto:baqirgakim@gmail.com" class="text-light">baqirgakim@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
